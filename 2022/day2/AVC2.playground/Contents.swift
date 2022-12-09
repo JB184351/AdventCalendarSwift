@@ -16,19 +16,19 @@ func determineRoundPoints(userChoice: RockPaperScissors, opponentChoice: RockPap
     
     switch (opponentChoice, userChoice) {
     case let (opponent, user) where opponent == .A && user == .X:
-        userPoints += 3
+        userPoints = 3
     case let (opponent, user) where opponent == .B && user == .Y:
-        userPoints += 3
+        userPoints = 3
     case let (opponent, user) where opponent == .C && user == .Z:
-        userPoints += 3
+        userPoints = 3
     case let (opponent, user) where opponent == .A && user == .Y:
-        userPoints += 6
+        userPoints = 6
     case let (opponent, user) where opponent == .B && user == .Z:
-        userPoints += 6
+        userPoints = 6
     case let (opponent, user) where opponent == .C && user == .X:
-        userPoints += 6
+        userPoints = 6
     default:
-        userPoints += 0
+        userPoints = 0
     }
     
     return userPoints
@@ -45,7 +45,7 @@ func additionalPoints(userChoice: RockPaperScissors) -> Int {
     case .C, .Z:
         userPoints += 3
     default:
-        userPoints += 0
+        userPoints = -1
     }
     
     return userPoints

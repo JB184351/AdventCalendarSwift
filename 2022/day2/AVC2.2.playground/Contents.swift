@@ -19,33 +19,30 @@ func determineShapeAndRoundPoints(opponentChoice: RockPaperScissors, roundResult
     switch (opponentChoice, roundResult) {
     case let (opponent, roundResult) where opponent == .A && roundResult == .X:
         userChoice = RockPaperScissors(rawValue: "C")!
-        userPoints += 0
     case let (opponent, roundResult) where opponent == .B && roundResult == .X:
         userChoice = RockPaperScissors(rawValue: "A")!
-        userPoints += 0
     case let (opponent, roundResult) where opponent == .C && roundResult == .X:
         userChoice = RockPaperScissors(rawValue: "B")!
-        userPoints += 0
     case let (opponent, roundResult) where opponent == .A && roundResult == .Y:
         userChoice = RockPaperScissors(rawValue: "A")!
-        userPoints += 3
+        userPoints = 3
     case let (opponent, roundResult) where opponent == .B && roundResult == .Y:
         userChoice = RockPaperScissors(rawValue: "B")!
-        userPoints += 3
+        userPoints = 3
     case let (opponent, roundResult) where opponent == .C && roundResult == .Y:
         userChoice = RockPaperScissors(rawValue: "C")!
-        userPoints += 3
+        userPoints = 3
     case let (opponent, roundResult) where opponent == .A && roundResult == .Z:
         userChoice = RockPaperScissors(rawValue: "B")!
-        userPoints += 6
+        userPoints = 6
     case let (opponent, roundResult) where opponent == .B && roundResult == .Z:
         userChoice = RockPaperScissors(rawValue: "C")!
-        userPoints += 6
+        userPoints = 6
     case let (opponent, roundResult) where opponent == .C && roundResult == .Z:
         userChoice = RockPaperScissors(rawValue: "A")!
-        userPoints += 6
+        userPoints = 6
     default:
-        userPoints += 0
+        userPoints = -2
     }
     
     return (userPoints, userChoice)
@@ -56,13 +53,13 @@ func additionalPoints(userChoice: RockPaperScissors) -> Int {
     
     switch RockPaperScissors(rawValue: userChoice.rawValue) {
     case .A, .X:
-        userPoints += 1
+        userPoints = 1
     case .B, .Y:
-        userPoints += 2
+        userPoints = 2
     case .C, .Z:
-        userPoints += 3
+        userPoints = 3
     default:
-        userPoints += 0
+        userPoints = -1
     }
     
     return userPoints
